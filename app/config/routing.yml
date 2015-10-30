@@ -1,0 +1,18 @@
+login:
+    path:     /login
+    defaults: { _controller: TaSurveySecurityBundle:Security:login }
+    
+login_check:
+    path: /login_check
+    
+logout:
+    path: /logout
+
+ta_survey_admin:
+    resource: "@TaSurveyAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+ta_survey_default:
+    resource: "@TaSurveyDefaultBundle/Resources/config/routing.yml"
+    prefix:   /
+

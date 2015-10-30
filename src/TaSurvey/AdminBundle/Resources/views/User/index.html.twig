@@ -1,0 +1,56 @@
+{% extends "TaSurveyAdminBundle:User:layout.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/survey/js/list.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+    <legend>用户列表</legend>
+
+    {% embed("::list.html.twig")  %}
+
+        {% block search %}
+            <form class="form-inline" id="searchForm" role="form">
+                <div class="form-group">
+                    <input name="key" id="key" class="form-control" value="{{ key }}" />
+                </div>
+                <button type="submit" class="btn btn-primary">搜索</button>
+                <button type="reset" class="btn btn-default" id="reset">重置</button>
+            </form>
+            <br />
+        {% endblock %}
+
+        {% block th %}
+            <th>{{ knp_pagination_sortable(pagination, 'ID', 'e.id') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, '姓名', 'e.name') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, '登录码', 'e.code') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, '手机', 'e.mobile') }}</th>
+            <th>操作</th>
+            {% endblock %}
+
+        {% block td %}
+            <td>{{ entity.id }}</td>
+            <td>{{ entity.name }}</td>
+            <td>{{ entity.code }}</td>
+            <td>{{ entity.mobile }}</td>
+           {# <td>{{ entity.rolesFormat }}</td>#}
+            <td>
+                <a class="btn btn-link" href="{{ path('admin_user_edit', {'id': entity.id }) }}">
+                    编辑
+                </a>
+                <a class="btn btn-link confirm" href="{{ path('admin_user_delete', {'id': entity.id }) }}">
+                    删除
+                </a>
+            </td>
+        {% endblock %}
+
+        {% block button %}
+            <a class="btn btn-primary" href="{{ path('admin_user_new') }}">新增</a>
+            <a class="btn btn-back" href="{{ path('admin_homepage') }}">返回</a>
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}

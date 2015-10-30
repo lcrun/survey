@@ -1,0 +1,19 @@
+admin_user:
+    pattern:  /
+    defaults: { _controller: TaSurveyAdminBundle:User:index }
+
+admin_user_new:
+    pattern:  /new
+    defaults: { _controller: TaSurveyAdminBundle:User:new }
+
+admin_user_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: TaSurveyAdminBundle:User:edit }
+    requirements:
+        id:  \d+
+
+admin_user_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: TaSurveyAdminBundle:User:delete }
+    requirements:
+        id:  \d+

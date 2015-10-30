@@ -1,0 +1,11 @@
+{% extends "TaSurveyAdminBundle:Paper:layout.html.twig" %}
+
+{% block content %}
+
+{{ paperHtml|raw }}
+
+{% block button %}
+    <a class="btn btn-back" href="{{ backLink }}">返回</a>
+{% endblock %}
+
+{% endblock %}

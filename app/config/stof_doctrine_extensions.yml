@@ -1,0 +1,5 @@
+stof_doctrine_extensions:
+    default_locale: zh_CN
+    orm:
+        default:
+            timestampable: true

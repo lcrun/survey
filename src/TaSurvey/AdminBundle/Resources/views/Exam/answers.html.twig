@@ -1,0 +1,44 @@
+{% extends "TaSurveyAdminBundle:Exam:layout.html.twig" %}
+
+{% block content %}
+
+<legend>结果列表</legend>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>登录码</th>
+            <th>是否参加过上次培训</th>
+            {% for question in questions %}
+            <th>第{{ question.id }}题</th>
+            {% endfor %}
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for entity in pagination %}
+        <tr>
+            <td>{{ entity.student.name }}</td>
+            <td>{{ entity.student.code }}</td>
+            <td>{{ entity.student.isParticipated }}</td>
+            {% if entity.status == constant('TaSurvey\\DefaultBundle\\Entity\\ExamStudent::STATUS_DONE') %}
+            {% for answer in entity.answer %}
+            <td>{{ answer.answer }}</td>
+            {% endfor %}
+            {% else %}
+            <td colspan="{{ questions|length }}" align="center">未提交</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{{ knp_pagination_render(pagination)}}
+
+ <a class="btn btn-back" href="{{ path('admin_homepage') }}">返回</a>
+
+{% endblock %}

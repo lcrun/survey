@@ -1,0 +1,19 @@
+default_homepage:
+    path:     /
+    defaults: { _controller: TaSurveyDefaultBundle:Default:index }
+
+number_set:
+    path:     /number
+    defaults: { _controller: TaSurveyDefaultBundle:Default:number }
+
+exam_view:
+    path:     /exam/view/{id}
+    defaults: { _controller: TaSurveyDefaultBundle:Default:examView }
+    requirements:
+        id:  \d+
+
+exam_submit:
+    path:     /exam/submit/{id}
+    defaults: { _controller: TaSurveyDefaultBundle:Default:examSubmit }
+    requirements:
+        id:  \d+

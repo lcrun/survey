@@ -1,0 +1,15 @@
+<li id="menu-paper">
+    <a href="{{ path('admin_paper') }}">试卷</a>
+</li>
+<li id="menu-exam">
+    <a href="{{ path('admin_exam') }}">调查</a>
+</li>
+<li id="menu-user">
+    <a href="{{ path('admin_user') }}">用户</a>
+</li>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#menu-{{ active }}').addClass("active");
+    });
+</script>

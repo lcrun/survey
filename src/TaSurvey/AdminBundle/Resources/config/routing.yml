@@ -1,0 +1,15 @@
+admin_homepage:
+    path:     /
+    defaults: { _controller: TaSurveyAdminBundle:Default:index }
+
+admin_paper:
+    resource: "@TaSurveyAdminBundle/Resources/config/paper_routing.yml"
+    prefix:   /paper
+
+admin_exam:
+    resource: "@TaSurveyAdminBundle/Resources/config/exam_routing.yml"
+    prefix:   /exam
+
+admin_user:
+    resource: "@TaSurveyAdminBundle/Resources/config/user_routing.yml"
+    prefix:   /user

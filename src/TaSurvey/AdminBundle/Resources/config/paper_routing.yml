@@ -1,0 +1,19 @@
+admin_paper:
+    pattern:  /
+    defaults: { _controller: TaSurveyAdminBundle:Paper:index }
+
+admin_paper_new:
+    pattern:  /new
+    defaults: { _controller: TaSurveyAdminBundle:Paper:new }
+
+admin_paper_preview:
+    pattern:  /preview/{id}
+    defaults: { _controller: TaSurveyAdminBundle:Paper:preview }
+    requirements:
+        id:  \d+
+
+admin_paper_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: TaSurveyAdminBundle:Paper:delete }
+    requirements:
+        id:  \d+

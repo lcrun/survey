@@ -1,0 +1,31 @@
+admin_exam:
+    pattern:  /
+    defaults: { _controller: TaSurveyAdminBundle:Exam:index }
+
+admin_exam_new:
+    pattern:  /new
+    defaults: { _controller: TaSurveyAdminBundle:Exam:new }
+
+admin_exam_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: TaSurveyAdminBundle:Exam:edit }
+    requirements:
+        id:  \d+
+
+admin_exam_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: TaSurveyAdminBundle:Exam:delete }
+    requirements:
+        id:  \d+
+
+admin_exam_answers:
+    pattern:  /answers/{id}
+    defaults: { _controller: TaSurveyAdminBundle:Exam:answers }
+    requirements:
+        id:  \d+
+
+admin_exam_answers_download:
+    pattern:  /answers/download/{id}
+    defaults: { _controller: TaSurveyAdminBundle:Exam:answersDownload }
+    requirements:
+        id:  \d+

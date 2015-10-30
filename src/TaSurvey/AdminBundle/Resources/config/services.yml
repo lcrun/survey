@@ -1,0 +1,7 @@
+parameters:
+#    ta_survey_admin.example.class: TaSurvey\AdminBundle\Example
+
+services:
+#    ta_survey_admin.example:
+#        class: %ta_survey_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

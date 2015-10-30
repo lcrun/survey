@@ -1,0 +1,51 @@
+{% extends "TaSurveyAdminBundle:Paper:layout.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/survey/js/list.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+    <legend>试卷列表</legend>
+
+    {% embed("::list.html.twig")  %}
+
+        {% block search %}
+            <form class="form-inline" id="searchForm" role="form">
+                <div class="form-group">
+                    <input name="key" id="key" class="form-control" value="{{ key }}" />
+                </div>
+                <button type="submit" class="btn btn-primary">搜索</button>
+                <button type="reset" class="btn btn-default" id="reset">重置</button>
+            </form>
+            <br />
+        {% endblock %}
+
+        {% block th %}
+            <th>{{ knp_pagination_sortable(pagination, 'ID', 'e.id') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, '名称', 'e.title') }}</th>
+            <th>操作</th>
+            {% endblock %}
+
+        {% block td %}
+            <td>{{ entity.id }}</td>
+            <td>{{ entity.title }}</td>
+            <td>
+                <a class="btn btn-link" href="{{ path('admin_paper_preview', {'id': entity.id }) }}">
+                    预览
+                </a>
+                <a class="btn btn-link confirm" href="{{ path('admin_paper_delete', {'id': entity.id }) }}">
+                    删除
+                </a>
+            </td>
+        {% endblock %}
+
+        {% block button %}
+            <a class="btn btn-primary" href="{{ path('admin_paper_new') }}">新增</a>
+            <a class="btn btn-back" href="{{ path('admin_homepage') }}">返回</a>
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}

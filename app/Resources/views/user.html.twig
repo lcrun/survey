@@ -1,0 +1,6 @@
+{% if(is_granted("IS_AUTHENTICATED_REMEMBERED")) %}
+    <p class="navbar-text pull-right">
+        {{ app.user.name }}
+        <a href="{{ path('logout') }}">注销</a>
+    </p>
+{% endif %}

@@ -1,0 +1,30 @@
+security:
+    encoders:
+        TaSurvey\DefaultBundle\Entity\User:
+            algorithm: plaintext
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        main:
+            entity:
+                class: TaSurvey\DefaultBundle\Entity\User
+                property: code
+
+    firewalls:
+        main:
+            pattern: ^/
+            anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login_check
+                username_parameter: _code
+                password_parameter: _code
+            logout: ~
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/, role: IS_AUTHENTICATED_REMEMBERED }

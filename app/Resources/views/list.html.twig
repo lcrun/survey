@@ -1,0 +1,24 @@
+{% block search %}{% endblock %}
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            {% block th %}{% endblock %}
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for entity in pagination %}
+        <tr>
+            {% block td %}{% endblock %}
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{{ knp_pagination_render(pagination)}}
+
+{% block button %}{% endblock %}

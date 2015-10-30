@@ -1,0 +1,7 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block brand %}
+    <a class="navbar-brand" href="{{ path('default_homepage') }}">{{ site_name }}</a>
+{% endblock %}
